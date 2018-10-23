@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        .text {
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            background: -webkit-linear-gradient(left top, blue, green, yellow);
+            border-radius: 50%;
+        }
+
+        .text2 {
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            border: 10px solid springgreen;
+            box-sizing: border-box;
+        }
+    </style>
+    <script>
+        var a = b = c = d = 12;
+        d = 1;
+        console.log(a, b, c, d);
+        var str = "aaa111";
+        //空字符串或者字符串只有空格，那么Number()得到的结果都是0
+        //Number()参数只要有一个非数字，就是NaN
+        console.log(Number(str));
+        console.log(parseInt(str));//只有第一个字符串是非数字，那么结果就是NaN
+        function sum() {
+            // console.log(arguments.length);//实参集合
+            var total=0;
+            for(var i=0;i<arguments.length;i++){
+                total=total+arguments[i];
+            }
+            return total;
+        }
+        var aa=sum(1,2,3,4,5);
+        console.log(aa);
+        
+
+        //布尔数据类型中，有5个是false：0 NaN "" null undefind，其他都是true
+        //转换为布尔类型Boolean()
+        //!代表取反
+        //!!代表取反后再取反，这个操作的效果等同于Boolean()
+        //"=="相对比较 会把两边数据类型转换成同一种数据类型再去比较
+        console.log("0" == 0);
+        //把引用数据类型转换为字符串，字符串再转换为数字，在进行比较
+        console.log([] == false);
+        console.log(![] == false);//先取反
+
+        //"==="绝对比较，先看两边是不是同一个数据类型，如不是，直接false；若是，咋再去比较值
+        // '0' != 1
+        // '0' !== 1
+
+        //对于&&来说
+        //前边成立给后边，前边不成立给前边
+        //对于||来说
+        //前边成立给前边，前边不成立给后边
+
+
+
+        /*
+        js中的数据类型分为两大类
+        基本数据类型 String number Boolean null undefined
+        引用数据类型 [] {} function Math Date 正则……
+        基本数据类型的操作都是一个值，引用数据类型的操作而是一个地址        
+        */
+
+
+        /*
+        ES6
+        */
+        var name = "珠峰";
+        var age= 20;
+        console.log(`我的名字是${name}我的年龄是${age}`);
+        var str2 = "123\"aaa";
+        console.log(str2);
+
+        NaN == NaN //false 结果永远为false
+
+        isNaN();//判断参数事都是NaN，若是返回true，否则返回false
+        null == undefined;//true
+        null === undefined;//false
+
+        typeof(str);//返回数据的数据类型，返回结果是字符串
+    
+        //获取属性的两种方式
+        //一种是打点，另一种是[]中括号这种方式一般适用于属性值是通过变量获取的情况
+
+
+        for (var i=0;i<10;i++){
+            switch (i%4){
+                case 1:
+                case 3:
+                    i+=1;
+                    break;
+                case 0:
+                case 2:
+                    i+=2;
+                    break;
+                default:
+                    i+=4;
+            }
+        }
+        console.log(i); 
+        
+    </script>
+</head>
+
+<body>
+    <div class="text">石家庄职业技术学院</div>
+    <div class="text2">石家庄职业技术学院软件学院</div>
+</body>
+
+</html>

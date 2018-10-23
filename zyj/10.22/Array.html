@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        var ary=[1,2,3,4,5];
+        var n=ary.push(4,5,6);//返回的是数组的新长度
+        //push() 向数组的末尾添加一个或更多元素，并返回新的长度。
+        console.log(ary);
+
+        //pop()	删除并返回数组最后一个元素
+        var item =ary.pop();
+        console.log(ary);
+        console.log(item);
+
+        //unshift() 向数组的首位添加一个或更多元素，并返回新的长度。
+        var item =ary.unshift(100);
+        console.log(ary);
+        console.log(item);
+
+        //shift() 删除并返回数组的第一个元素
+        var item =ary.unshift(100);
+        console.log(ary);
+        console.log(item);
+
+        //sort() 对数组的元素进行排序，返回结果是排好序之后的数组
+        ary2 = [65,34,688,456,8908];
+        ary2.sort(function (a,b) {
+            return b-a;
+            //返回值a-b，则升序
+            //返回值b-a，则降序
+        })
+        console.log(ary2);
+
+        //reverse() 颠倒数组中元素的顺序，返回顺序颠倒后的数组，和原数组是同一个地址
+        console.log(ary2.reverse());
+        
+        //forEach用来循环数组
+        ary = [10,20,30,40];
+        ary.forEach(function (item,index) {
+            // item 是循环的数组的每一项
+            //index 是循环的每一项的索引
+        })
+
+        var ary = ary.filter(function (item,index) {
+            return false;
+        })
+        console.log(ary);
+
+        var ary1 = [];
+        var ary2 = [];
+        var ary3 = ary2;
+        console.log(ary1 == ary2)//false
+
+
+        // return有两个作用，一个是打断函数的执行，一个是返回函数值给外界，不写return，默认返回undefined
+    </script>
+</head>
+<body>
+    
+    
+</body>
+</html>
