@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //join 让数组中的每一项按指定字符拼接，返回结果是一个字符串
+        var ary=[1,2,3];
+        ary.join('+');//输出'1+2+3'
+        
+        //split 把字符串以指定字符拆分为数组
+        var str = '1+2+3+4+5+6+7';
+        str.split('+');//输出["1", "2", "3", "4", "5", "6", "7"]
+        
+        //eval 把字符串转换成js表达式，并计算
+        eval('1+2+3');//结果6
+
+        var ary = [23,10,20,30];
+        eval(ary.join('+')); //结果是数组的合
+
+
+        // var str = 'qqwewrertetetetet';
+        // var obj = {};
+        // /* obj.q = 1; obj.q++
+        // obj.w=1
+        // obj.e = 1;obj.w++ */
+        // for (var i = 0; i < str.length; i++) {
+        //     //obj.str[i]
+        //     if (obj[str[i]]) {
+        //         //若 对象中存在该项；
+        //         //则证明之前已经给该项赋过值了；
+        //         //直接进行 ++ 的操作即可
+        //         obj[str[i]]++
+        //     } else {
+        //         obj[str[i]] = 1;
+        //         }
+        //     /* obj[str[i]] = 1;
+        //     obj[str[i]]++ */
+        // }
+
+        //获取数组中每个字符出现的次数
+        var str = 'erererewrewwer';
+        var obj = {};
+        for (var i=0;i<str.length;i++){
+            var char = str.charAt(i);
+            // console.log(char);
+            if (obj[char]){
+                obj[char]++;
+            }else{
+                obj[char]=1;
+            }
+        }
+        var max = 0;
+        var maxChar ='';
+        for (var t in obj){
+            if (max < obj[t]){
+                max=obj[t];
+                maxChar=t;
+            }
+        }
+        console.log(obj);
+        console.log('出现最多的字符串是'+maxChar+'出现了'+max+'次');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
