@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+
+    let ary1 = []
+    let obj1 = { a1=12, a2=13 };
+
+
+    function fn() {
+        i = 2;
+        return function (n) {
+            console.log(n * i++);
+        }
+    }
+    var f = fn();
+    f(3);   //6
+    fn()(4);//8
+    f(2);   //6
+    //i++ i先运算后累加
+    //++i i先累加后运算
+
+    //剩余运算符
+    function sum(a1,...ary){
+        console.log(a1,ary);
+    }
+    sum(1,2,3,4,5); //1 [2, 3, 4, 5]
+
+    function bdxsum(...ary){
+        return eval(ary.join('+'));
+        //通过...把传进来的实参 都放到ary这个数组中
+        //在用数组的join把数组的每一项用+拼接成字符串
+        //再用eval把拼接好的字符串 转成表达式计算
+    }
+    console.log(bdxsum(1,2,3));
+
+</script>
