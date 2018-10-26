@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let ary = [1,2,3,4,5,6];
+    // let a1=ary[0];
+    // let a2=ary[1];
+    /*
+        数组的解构赋值
+        赋值结果 按照对应位置去赋值
+    */
+    let [a1,a2,a3,,,a4] =ary;
+
+    let x = 12;
+    let y = 13;
+    //不添加变量的情况下，互换xy值
+    // x = x + y;
+    // y = x - y;
+    // x = x - y;
+    [x,y] = [y,x];
+    console.log(x,y);
+
+    /*
+        对象的解构赋值
+    */
+    let obj = {name:"zf",age:9}
+    let {name,age,sex} = obj;
+    console.log({name,age,sex});
+    /* 
+    let name = obj.name;
+    let age = obj.age;
+    let sex = obj.sex;
+    */
+
+
+    /*
+        拓展运算符 ...3个点
+    */
+    let arr1 = [1,2,3];
+    let arr2 = [...arr1,...arr1,4,5,6]; //[1, 2, 3, 1, 2, 3, 4, 5, 6]
+    let arr3 = [arr1,arr1,4,5,6];
+
+    let obj1 = {name:"zf",age:9};
+    let obj2 = {...obj1,sex:1,name:12};
+    let obj3 = {...obj1};
+    let obj4 = obj1;
+
+</script>
