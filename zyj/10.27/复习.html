@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //自执行函数  自执行函数的this都是window
+    (function s(a, b) { return a + b }(5, 5));
+
+    //1.变量提升 2.代码执行 全局的
+    var name = '珠峰';
+    var age = 9;
+    age = (function (name, age) {
+        name = '珠峰';
+        age = age || this.age;
+        this.age = arguments[0];
+        console.log(name, age)  //珠峰 9
+        return this.age;
+    })(name, age);
+    console.log(name, age);     //珠峰 珠峰
+
+    let obj2 = { name: 'zf' };
+    let fn = function (...ary) {
+        console.log(this, ary)
+    }
+    fn.call(obj2, 1, 2, 3);
+    fn.apply(obj2, [1, 2, 3])
+
+</script>

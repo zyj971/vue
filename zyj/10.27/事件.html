@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="oDiv" style="background:#ccc;width:500px;height:1300px;">
+        <div id="inner" style="width: 300px;height: 200px;background: #fff;">
+            <a href="www.baidu.com" id="a">www.baidu.com</a>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    oDiv.onclick = function (e) {
+        console.log(e);
+        //e.target 表示点击的事件源
+        //e.clientX 表示点击的位置距离可视窗口的x轴的距离
+        //e.pageX 鼠标点击的位置距离body左上角的x轴的距离
+        // document.getElement.scrollTo=0;
+    }
+    oDiv.onmouseenter=function(e){
+        console.log(e);
+    }
+    oDiv.onmouseleave=function(e){
+        console.log(e);
+    }
+    // document.getElement.scrollTo=0;
+    window.onscroll=function(e){
+        console.log(e);
+    }
+    inner.onclick=function(e){
+        e.stopPropagation();//阻止事件的冒泡
+        console.log("inner");
+
+    }
+    a.onclick=function(e){
+        e.preventDefault();//阻止默认行为
+        alert(123);
+    }
+</script>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    /*
+        面向对象 它是一种以对象数据类型为导向的编程思想
+        类                     实例
+        Array         所有的数组都是Array这个类的具体实例
+        实例的 __proto__ 属性 
+        是指向 类的prototype属性的
+        js中的内置类 Array Object Number String Boolean String ...
+    */
+
+    /*
+        原型链： 它是一种属性的查找机制；
+        先再自身上查找某属性；若没有，则取所属类的原型上查找；
+        再没有；向上级类的原型上查找；一直查到基类的原型上；
+    */
+    Object.prototype.toString.call(true);
+    //查看数据类型的另一种方式
+
+    function Person() {
+        this.a = 12;
+        this.b = 13;
+        this.sum = function (a, b) {
+            return a - b;
+        }
+    }
+    // Person.prototype.sum = function (a, b) {
+    //     return a + b;
+    // }
+    // 新创建一个该类的实例
+    let per1 = new Person();
+    let per2 = new Person();
+    console.dir(per1 === per2)// 查看详细信息
+    per1.__proto__ === Person.prototype;
+    Person.prototype.constructor === Person;
+    console.dir(per1.sum(8, 6));
+
+    Person.prototype.sum1 = function (a, b) {
+        console.log(a + b);
+        return this;
+    }
+    Person.prototype.sum2 = function (a, b) {
+        console.log(a + b) * 10;
+        return this;
+    }
+    per1.sum1(1, 2).sum2(2, 3);
+    //链式写法 的关键在于前边的返回值 要是该类的一个实例
+
+
+    //ES6 类的写法
+    class Student {
+        //私有属性
+        constructor() {
+            this.a = 23;
+            this.b = 24;
+            //这里放的都是实例的私有属性
+        }
+        //公有属性
+        sum(a, b) {
+            return a + b;
+        }
+        sum2(a, b) {
+            return (a + b) * 10;
+        }
+    }
+    //新创建一个Student2类，继承Student类
+    class Student2 extends Student {
+        constructor() {
+            super();
+            this.b=200;
+            this.c=13;
+        }
+    }
+    let stu1 = new Student();
+    let stu2 = new Student2();
+    console.log(stu2.sum(2,2))
+    console.log(stu2.b)
+
+
+
+
+
+
+</script>

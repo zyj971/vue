@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">停止</button>
+    <h1 id="timebox"></h1>
+</body>
+
+</html>
+<script>
+    /*
+        setTimeout(回调函数，等待时间)
+        经过等待时间之后 执行 回调函数
+        这个等待时间是以毫秒为单位的；
+    */
+    // let timer = setTimeout(() => {
+    //     console.log(1111);
+    // }, 1000);
+    // clearTimeout(timer);//清除定时器
+    // //setInterval 与 setTimeout 的区别
+    // //setInterval 是不停的执行
+    // let timer2 = setInterval(() => {
+    //     console.log(2222);
+    // }, 1000);
+    // btn.onclick = function () {
+    //     clearInterval(timer2);
+    // }
+
+    // setTimeout(() => {
+    //     console.log(0);
+    // }, 1000)
+    // console.log(1);
+    //异步代码
+    //只有在同步代码执行完毕后才会被执行
+
+    /*
+        Date
+        let now = new Date();
+        now.getTime(); //返回距离1970.1.1 00:00的毫秒数
+    */
+
+
+    // 倒计时 思路 
+    // 要知道目标时间 和当前时间
+    // 把两者的时间差 转成 时分秒
+    // 一秒转一次
+    let endTime = new Date('2018/10/27 17:30:00');
+    let timer1=setInterval(() => {
+        let nowTime = new Date();
+        let time = endTime - nowTime;
+        if (time<=0){
+            clearInterval(timer1);
+            return;
+        }
+        console.log(time);
+        var hour = Math.floor(time / 1000 / 60 / 60);
+        time = time - hour * 1000 * 60 * 60;
+        var minute = Math.floor(time / 1000 / 60);
+        time = time - minute * 1000 * 60;
+        var second = Math.floor(time / 1000);
+        
+        //三元运算符
+        //语法是 条件 ? 结果1 : 结果2。条件写在问号(?)的前面，后面跟着用冒号(:)分隔的结果1和结果2。满足条件时结果1否则结果2。
+        hour < 10 ? hour = '0' + hour : null;
+        minute < 10 ? minute = '0' + minute : null;
+        second < 10 ? second = '0' + second : null;
+        let str = `距离下课还有${hour}时${minute}分${second}秒`;
+        timebox.innerHTML = str;
+        console.log(hour, minute, second);
+    }, 1000)
+
+
+
+
+</script>
